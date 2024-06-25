@@ -19,6 +19,4 @@ export class LoginService {
     const headers = new HttpHeaders({'Content-Type':'application/json'});
     return this.http.post<any>(`http://localhost:8080/login/loginUser`,data,{headers:headers});
   }
-  
-
 }

@@ -11,6 +11,7 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  notificationFlag:any=false;
 
   constructor(private fb: FormBuilder,private router: Router,private loginService:LoginService) {
     this.loginForm = this.fb.group({
@@ -26,6 +27,8 @@ export class LoginComponent {
         response =>{
           if(response == true){
             this.router.navigate(['/home']);
+          }else{
+            this.notificationFlag = 'invalidCredentials';
           }
         },
         error =>{
@@ -34,7 +37,8 @@ export class LoginComponent {
 
       );
 
-    }
+    }else
+       this.notificationFlag = 'invalidEmail';
   }
 
 
