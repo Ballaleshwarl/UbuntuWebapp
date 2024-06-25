@@ -4,6 +4,9 @@
         <input type="email" formControlName="email" class="form-input" placeholder="Enter Email">
         <span class="input-label">Enter Email</span>
       </div>
+      <div>
+        <span *ngIf="notificationFlag == 'invalidEmail'" class="notificationFlag">Invalid Email</span>
+      </div>
   
       <div class="input-group">
         <input type="password" formControlName="password" class="form-input" placeholder="Enter Password">
@@ -16,6 +19,11 @@
         <span>New User? </span>
         <a routerLink="signup" class="sign-up-link">Sign up</a>
       </div>
+        
+      <div>
+        <span *ngIf="notificationFlag == 'invalidCredentials'" class="notificationFlag">Invalid Credentials!</span>
+      </div>
+
     </form>
   </div>
   

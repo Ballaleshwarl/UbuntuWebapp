@@ -40,3 +40,13 @@
 .sign-up-link:hover {
     text-decoration: underline;
 }
+
+.notificationFlag{
+  color: red;
+  /* margin-top: 10000px; */
+  /* margin-left: 300px; */
+}
+
+.invalidEmail{
+    color: red;
+}
