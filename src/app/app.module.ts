@@ -9,6 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { InvestigateComponent } from './investigate/investigate.component';
+import { StudioComponent } from './studio/studio.component';
+import { PipelineComponent } from './pipeline/pipeline.component';
+import { RespondComponent } from './respond/respond.component';
+import { ConfigureComponent } from './configure/configure.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     HomeComponent,
     SignupComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    InvestigateComponent,
+    StudioComponent,
+    PipelineComponent,
+    RespondComponent,
+    ConfigureComponent
   ],
   imports: [
     BrowserModule,
