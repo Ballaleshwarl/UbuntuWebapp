@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,6 +15,12 @@ import { StudioComponent } from './studio/studio.component';
 import { PipelineComponent } from './pipeline/pipeline.component';
 import { RespondComponent } from './respond/respond.component';
 import { ConfigureComponent } from './configure/configure.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { LoadPipelineComponent } from './load-pipeline/load-pipeline.component';
+import { DynamicHostDirective } from './dynamic-host.directive';
 
 @NgModule({
   declarations: [
@@ -28,13 +34,19 @@ import { ConfigureComponent } from './configure/configure.component';
     StudioComponent,
     PipelineComponent,
     RespondComponent,
-    ConfigureComponent
+    ConfigureComponent,
+    LoadPipelineComponent,
+    DynamicHostDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSelectModule, MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
