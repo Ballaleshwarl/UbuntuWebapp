@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, createComponent, OnInit, ViewChild } from '@angular/core';
+import { Component, createComponent, OnInit, ViewChild } from '@angular/core';
 import { LoadPipelineComponent } from '../load-pipeline/load-pipeline.component';
 import { DynamicHostDirective } from '../dynamic-host.directive';
 
@@ -10,7 +10,7 @@ type:String
 @Component({
   selector: 'app-pipeline',
   templateUrl: './pipeline.component.html',
-  styleUrls: ['./pipeline.component.css']
+  styleUrls: ['./pipeline.component.css'],
 })
 export class PipelineComponent  implements OnInit{
 
@@ -34,8 +34,7 @@ onSelect(event:Event){
   viewContainerRef.clear();
   const selectedElement = event.target as HTMLSelectElement;
   this.selectedValue = selectedElement.value; 
-  viewContainerRef.createComponent(LoadPipelineComponent);
+  const loadedComponent = viewContainerRef.createComponent(LoadPipelineComponent);
+  loadedComponent.instance.IngestionType = this.selectedValue; 
 }
-
-
 }

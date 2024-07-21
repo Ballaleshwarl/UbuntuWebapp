@@ -21,6 +21,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { LoadPipelineComponent } from './load-pipeline/load-pipeline.component';
 import { DynamicHostDirective } from './dynamic-host.directive';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatDialogModule} from "@angular/material/dialog";
+import { NotificationComponent } from './notification/notification.component'
 
 @NgModule({
   declarations: [
@@ -36,7 +42,8 @@ import { DynamicHostDirective } from './dynamic-host.directive';
     RespondComponent,
     ConfigureComponent,
     LoadPipelineComponent,
-    DynamicHostDirective
+    DynamicHostDirective,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,12 @@ import { DynamicHostDirective } from './dynamic-host.directive';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatSelectModule, MatInputModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

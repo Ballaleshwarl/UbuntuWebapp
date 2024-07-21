@@ -1,1 +1,20 @@
-<p>load-pipeline works!</p>
+<mat-toolbar color="black" *ngIf="uploadClicked">
+    <span>CSV Upload</span>
+  </mat-toolbar>
+
+
+  <mat-card>
+    <mat-card-content *ngIf="uploadClicked == 'USER'">
+      <h2>Upload CSV File</h2>
+      <input type="file" (change)="onFileSelected($event)" accept=".csv">
+      <button mat-raised-button color="primary" (click)="uploadFile()" [disabled]="!selectedFile">Upload</button>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+
+
+  
+  
