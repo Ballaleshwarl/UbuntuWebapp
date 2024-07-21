@@ -1,5 +1,18 @@
 <app-header></app-header>
 
+   
+   
+<mat-form-field>
+    <mat-label>
+        Ingestion Type
+    </mat-label>
+    <select matNativeControl required  (change)="onSelect($event)">
+        <option  *ngFor="let option of options">{{option.type}}</option>
+      </select>
+</mat-form-field>
+
+
+<div appDynamicHost></div>
 
 
 <app-footer></app-footer>
