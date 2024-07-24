@@ -1,0 +1,48 @@
+.selection_div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin-top: 100px;
+    background-color: antiquewhite;
+  }
+  
+  .selection_btn {
+    flex: 1;
+    height: 100%;
+    background-color: rgb(232, 225, 216);
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .selection_btn:not(:last-child) {
+    border-right: 1px solid #fefafa;
+  }
+
+  table {
+  width: 100%;
+  background-color: rgb(239, 236, 233);
+}
+
+.mat-column-riskscore {
+  text-align: center;
+} 
+
+mat-card{
+  margin: 2%;
+}
+.low-risk {
+  background-color: rgb(151, 190, 151);
+}
+
+.medium-risk {
+  background-color: orange;
+}
+
+.high-risk {
+  background-color: rgb(204, 22, 22);
+}

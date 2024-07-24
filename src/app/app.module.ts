@@ -26,7 +26,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatDialogModule} from "@angular/material/dialog";
-import { NotificationComponent } from './notification/notification.component'
+import { NotificationComponent } from './notification/notification.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator'
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,10 @@ import { NotificationComponent } from './notification/notification.component'
     MatCardModule,
     MatButtonModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
