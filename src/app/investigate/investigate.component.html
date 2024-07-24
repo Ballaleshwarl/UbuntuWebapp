@@ -1,4 +1,54 @@
 <app-header></app-header>
 
+<div class="selection_div">
+    <button *ngFor="let option of options" class="selection_btn" (click)="onClick(option)">{{option.type}}</button>
+  </div>
+  
+  <mat-card>
+    <mat-card-header></mat-card-header>
+    <mat-card-content>
+
+  <table matSort mat-table [dataSource]="globalUsers" class="mat-elevation-z8">
+  
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+    </ng-container>
+  
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
+    </ng-container>
+  
+    <!-- Department Column -->
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <td mat-cell *matCellDef="let user"> {{user.department}} </td>
+    </ng-container>
+  
+    <!-- Employee ID Column -->
+    <ng-container matColumnDef="employeeId">
+      <th mat-header-cell *matHeaderCellDef> Employee ID </th>
+      <td mat-cell *matCellDef="let user"> {{user.employeeId}} </td>
+    </ng-container>
+  
+    <!-- Risk Score Column -->
+    <ng-container matColumnDef="riskscore" class="riskscore_cell">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef> Risk Score </th>
+      <td mat-cell *matCellDef="let user"[ngClass]="getRiskScoreClass(user.riskscore)"> {{user.riskscore}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  </table>
+   
+</mat-card-content>
+<mat-card-footer>
+  <mat-paginator [pageSizeOptions]="[6,10,20]" showFirstLastButtons></mat-paginator>
+</mat-card-footer>
+</mat-card>
 
 <app-footer></app-footer>
