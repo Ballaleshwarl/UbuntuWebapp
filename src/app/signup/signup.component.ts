@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -10,6 +11,7 @@ import { LoginService } from '../login.service';
 })
 export class SignupComponent {
   loginForm:FormGroup;
+
 
 
   constructor(private fb: FormBuilder,private router: Router,private loginService:LoginService)  {
@@ -22,14 +24,17 @@ export class SignupComponent {
 
   onSubmit() {
    if(this.loginForm.valid){
-    this.loginService.saveOrUpdateUser(this.loginForm.value).subscribe(response =>{
+    this.loginService.saveOrUpdateUser(this.loginForm.value).subscribe(
+      response =>{
       if(response == true){
         this.router.navigate(['']);
       }
     },
     error => {
       console.log('error',error);
-    })
+    }
+
+  )
    }
   }
 

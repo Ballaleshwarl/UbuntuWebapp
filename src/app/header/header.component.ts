@@ -11,6 +11,7 @@ export class HeaderComponent {
   constructor(private router:Router){}
 
   logout(){
+  
     this.router.navigate(['']);
   }
 }

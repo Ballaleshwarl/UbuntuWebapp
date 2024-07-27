@@ -26,10 +26,15 @@ export class LoginComponent {
       this.loginService.loginUser(this.loginForm.value).subscribe(
         response =>{
           if(response == true){
-            this.router.navigate(['/home']);
+            localStorage.setItem("isLoggedIn","true");
+           this.router.navigate(["/home"])
+            
           }else{
             this.notificationFlag = 'invalidCredentials';
+            localStorage.setItem("isLoggedIn","false");
+            
           }
+        
         },
         error =>{
           console.log('error',error);
