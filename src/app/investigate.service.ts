@@ -15,3 +15,4 @@ export class InvestigateService {
     return this.http.post("http://localhost:8080/datalist/fetchDatalist",body,{headers: headers});
   }
 }
+  

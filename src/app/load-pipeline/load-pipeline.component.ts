@@ -3,6 +3,7 @@ import * as Papa from 'papaparse';
 import { PipelineService } from '../pipeline.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationComponent } from '../notification/notification.component';
+import { ResourceService } from '../resource.service';
 
 
 @Component({
@@ -15,8 +16,12 @@ export class LoadPipelineComponent implements OnInit {
   selectedFile: File | null = null;
   uploadClicked: any;
   csvJsonData: any;
+  resourceFlyout:boolean = false;
+  resources:any;
+  selectedResource:String="";
+  showUpload:boolean=false;
 
-  constructor(private pipelineService: PipelineService, private dialogRef: MatDialog) {
+  constructor(private pipelineService: PipelineService, private dialogRef: MatDialog,private resourceService:ResourceService) {
 
   }
 
@@ -29,10 +34,9 @@ export class LoadPipelineComponent implements OnInit {
       switch (this.IngestionType) {
         case 'USER':
           this.uploadClicked = 'USER';
-
           break;
         case 'ACTIVITY':
-
+          this.uploadClicked = 'ACTIVITY';  
           break;
       }
     }
@@ -88,6 +92,28 @@ export class LoadPipelineComponent implements OnInit {
 
     )
 
+  }
+
+
+  loadResources(){
+    this.resourceFlyout = true;
+    this.resourceService.loadResources().subscribe(
+      (res)=>{
+        this.resources = res;
+        this.resources.unshift('select');
+      }
+    )
+
+  }
+
+  onChange(event:any){
+
+    if( event.target.value){
+      this.selectedResource = event.target.value;
+    }
+    this.resourceFlyout = false;
+    this.showUpload = true;
+    
   }
 
 }

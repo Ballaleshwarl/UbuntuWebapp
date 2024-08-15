@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<button class="add-btn" (click)="AddResource()">Add</button>
+<div class="div-bar">Resources</div>
+
+<div class="form-div" *ngIf="enableResorceForm">
+    <div class="form-container">
+        <form [formGroup]="resourceForm" (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <span class="input-label">Register Resource</span><br><br>
+            <input type="text" formControlName="resource"  class="form-input" placeholder="Enter Resource Name">
+          </div>
+          <br>
+          <button type="submit" class="submit-button">Submit</button>  
+    
+        </form>
+      </div>
+</div>
+  
+
+
+
+<app-footer></app-footer>

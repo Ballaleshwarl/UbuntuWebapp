@@ -8,6 +8,7 @@ import { StudioComponent } from './studio/studio.component';
 import { PipelineComponent } from './pipeline/pipeline.component';
 import { RespondComponent } from './respond/respond.component';
 import { ConfigureComponent } from './configure/configure.component';
+import { ResourceComponent } from './resource/resource.component';
 
 const routes: Routes = [{path:'', component: LoginComponent, pathMatch:'full'},
   {path: 'home', component: HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [{path:'', component: LoginComponent, pathMatch:'full'},
 {path:'pipeline',component:PipelineComponent},
 {path:'respond',component:RespondComponent},
 {path:'configure',component:ConfigureComponent},
+{path:'resource', component:ResourceComponent},
 {path:'**',redirectTo:''}];
 
 @NgModule({

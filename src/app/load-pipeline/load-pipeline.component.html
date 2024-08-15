@@ -1,17 +1,35 @@
-<mat-toolbar color="black" *ngIf="uploadClicked">
+<mat-toolbar color="black"  *ngIf="uploadClicked =='USER'">
     <span>CSV Upload</span>
   </mat-toolbar>
 
 
   <mat-card>
-    <mat-card-content *ngIf="uploadClicked == 'USER'">
+    <mat-card-content *ngIf="uploadClicked =='USER'">
       <h2>Upload CSV File</h2>
       <input type="file" (change)="onFileSelected($event)" accept=".csv">
       <button mat-raised-button color="primary" (click)="uploadFile()" [disabled]="!selectedFile">Upload</button>
     </mat-card-content>
   </mat-card>
 
+ <div class="flex_container">
+  <div class="box" *ngIf="uploadClicked == 'ACTIVITY'">
+    <button mat-button class="box_btn" (click)="loadResources()"> Select Resource</button>
+  </div>
 
+  <div class="box" *ngIf="showUpload">
+    <button mat-button class="box_btn_upload" style="justify-items: center;" >Upload </button>
+  </div>
+ </div>
+
+  <mat-form-field class="load_resources_flyout" *ngIf="resourceFlyout" >
+    <select matNativeControl required (change)="onChange($event)">
+      <option *ngFor="let resource of resources">{{resource}}</option>
+    </select>
+  </mat-form-field>
+
+  <div class="upload" *ngIf="showUpload">
+    <button mat-button class="upload_btn">Upload </button>
+  </div>
 
 
 

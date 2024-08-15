@@ -1,0 +1,42 @@
+mat-card{
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+}
+mat-toolbar{
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.box{
+    height: 150px;
+    width:150px;
+    background-color: rgb(174, 213, 213);
+    border-radius: 10px;
+}
+
+.box_btn{
+    justify-content: center;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+.box_btn_upload{
+    margin-top: 50px;
+    justify-content: center;
+   margin-left: 40px;
+    /* justify-items: center; */
+}
+
+.flex_container{
+    display: flex; /* Enables Flexbox layout */
+    justify-content: flex-start; /* Aligns items to the start with no extra space */
+    align-items: center; /* Aligns items vertically centered */
+    gap: 50px;
+}
+
+.load_resources_flyout{
+    color: rgb(174, 213, 213);
+    margin-top: 10px;
+}
