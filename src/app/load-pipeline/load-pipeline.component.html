@@ -1,10 +1,10 @@
-<mat-toolbar color="black"  *ngIf="uploadClicked =='USER'">
+<mat-toolbar color="black"  *ngIf="enableCsvCard">
     <span>CSV Upload</span>
   </mat-toolbar>
 
 
   <mat-card>
-    <mat-card-content *ngIf="uploadClicked =='USER'">
+    <mat-card-content *ngIf="enableCsvCard">
       <h2>Upload CSV File</h2>
       <input type="file" (change)="onFileSelected($event)" accept=".csv">
       <button mat-raised-button color="primary" (click)="uploadFile()" [disabled]="!selectedFile">Upload</button>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="box" *ngIf="showUpload">
-    <button mat-button class="box_btn_upload" style="justify-items: center;" >Upload </button>
+    <button mat-button class="box_btn_upload" style="justify-items: center;" (click)="uploadActivity()">Upload </button>
   </div>
  </div>
 

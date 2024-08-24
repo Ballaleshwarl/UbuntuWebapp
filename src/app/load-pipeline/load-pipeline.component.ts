@@ -18,8 +18,9 @@ export class LoadPipelineComponent implements OnInit {
   csvJsonData: any;
   resourceFlyout:boolean = false;
   resources:any;
-  selectedResource:String="";
+  selectedResource:string="";
   showUpload:boolean=false;
+  enableCsvCard:boolean= false;
 
   constructor(private pipelineService: PipelineService, private dialogRef: MatDialog,private resourceService:ResourceService) {
 
@@ -34,6 +35,7 @@ export class LoadPipelineComponent implements OnInit {
       switch (this.IngestionType) {
         case 'USER':
           this.uploadClicked = 'USER';
+          this.enableCsvCard = true;   
           break;
         case 'ACTIVITY':
           this.uploadClicked = 'ACTIVITY';  
@@ -55,7 +57,12 @@ export class LoadPipelineComponent implements OnInit {
           header: true,
           complete: (result) => {
             this.csvJsonData = result.data
-            this.ingestUsers(this.csvJsonData); // JSON data
+            if(this.uploadClicked == 'USER'){
+              this.ingestUsers(this.csvJsonData); // USER data
+            }else if(this.uploadClicked == 'ACTIVITY'){
+              this.ingestActivity(this.csvJsonData,this.selectedResource)  //ACTIVITY data
+            }
+            
 
           }
         });
@@ -70,7 +77,6 @@ export class LoadPipelineComponent implements OnInit {
       (response: any) => {
 
         if (response && response["ingested users"] == -1) {
-          console.log("not ingesting");
           this.dialogRef.open(NotificationComponent, {
             data: {
               notificationObject: "Some issue Occurred in ingesting !!!"
@@ -114,6 +120,19 @@ export class LoadPipelineComponent implements OnInit {
     this.resourceFlyout = false;
     this.showUpload = true;
     
+  }
+
+  uploadActivity(){
+    this.enableCsvCard = true;  
+   
+  }
+
+  ingestActivity(data:any,selectedResource:string){
+    this.pipelineService.ingestActivity(data,selectedResource).subscribe(
+      (res)=>{
+
+      }
+    );
   }
 
 }
