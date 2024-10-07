@@ -1,5 +1,5 @@
-<header>
-    <nav>
+
+    <!-- <nav>
       <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/investigate">Investigate</a></li>
@@ -9,5 +9,16 @@
         <li><a href="/configure">Configure</a></li>
         <button (click)="logout()">Logout</button>
       </ul>
-    </nav>
-  </header>
+    </nav> -->
+    <nav class="bg-purple-600 text-white shadow-lg">
+      <ul class="px-28 py-6 flex space-x-8 justify-end items-center text-lg font-semibold">
+          <li  class="hover:text-purple-300 cursor-pointer transition duration-300"><a href="/home">Home</a></li>
+          <li class="hover:text-purple-300 cursor-pointer transition duration-300"><a href="/investigate">Investigate</a></li>
+          <li class="hover:text-purple-300 cursor-pointer transition duration-300"><a href="/studio">Studio</a></li>
+          <li class="hover:text-purple-300 cursor-pointer transition duration-300"><a href="/pipeline">Pipeline</a></li>
+          <li class="hover:text-purple-300 cursor-pointer transition duration-300"><a href="/respond">Respond</a></li>
+          <li class="hover:text-purple-300 cursor-pointer transition duration-300"><a href="/configure">Configure</a></li>
+          <button (click)="logout()">Logout</button>
+      </ul>
+  </nav>
+  

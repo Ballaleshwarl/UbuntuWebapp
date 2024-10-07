@@ -16,7 +16,7 @@ export class PipelineService {
 
   ingestActivity(data:any,selectedResource:string):Observable<any>{
   const formData =  new FormData();
-  formData.set("data",data);
+  formData.set("data",JSON.stringify(data));
   formData.set("selectedResource",selectedResource);
   return this.http.post("http://localhost:8080/pipeline/ingestActivity",formData);
   }

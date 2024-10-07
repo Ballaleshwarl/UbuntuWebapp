@@ -21,6 +21,7 @@ export class LoadPipelineComponent implements OnInit {
   selectedResource:string="";
   showUpload:boolean=false;
   enableCsvCard:boolean= false;
+  showMappingfields:boolean = false;
 
   constructor(private pipelineService: PipelineService, private dialogRef: MatDialog,private resourceService:ResourceService) {
 
@@ -123,13 +124,28 @@ export class LoadPipelineComponent implements OnInit {
   }
 
   uploadActivity(){
-    this.enableCsvCard = true;  
+    this.enableCsvCard = true; 
+    this.showMappingfields =  true; 
    
   }
 
   ingestActivity(data:any,selectedResource:string){
     this.pipelineService.ingestActivity(data,selectedResource).subscribe(
       (res)=>{
+        if(res == true){
+          this.dialogRef.open(NotificationComponent, {
+            data :
+            {
+              notificationObject :"Activities Ingested"
+            }
+          })
+        }else{
+          this.dialogRef.open(NotificationComponent,{
+            data :{
+              notificationObject :"Failed To Ingest Activities"
+            }
+          })
+        }
 
       }
     );
