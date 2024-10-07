@@ -3,6 +3,7 @@ import * as Papa from 'papaparse';
 import { PipelineService } from '../pipeline.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationComponent } from '../notification/notification.component';
+import { ResourceService } from '../resource.service';
 
 
 @Component({
@@ -15,8 +16,14 @@ export class LoadPipelineComponent implements OnInit {
   selectedFile: File | null = null;
   uploadClicked: any;
   csvJsonData: any;
+  resourceFlyout:boolean = false;
+  resources:any;
+  selectedResource:string="";
+  showUpload:boolean=false;
+  enableCsvCard:boolean= false;
+  showMappingfields:boolean = false;
 
-  constructor(private pipelineService: PipelineService, private dialogRef: MatDialog) {
+  constructor(private pipelineService: PipelineService, private dialogRef: MatDialog,private resourceService:ResourceService) {
 
   }
 
@@ -29,10 +36,10 @@ export class LoadPipelineComponent implements OnInit {
       switch (this.IngestionType) {
         case 'USER':
           this.uploadClicked = 'USER';
-
+          this.enableCsvCard = true;   
           break;
         case 'ACTIVITY':
-
+          this.uploadClicked = 'ACTIVITY';  
           break;
       }
     }
@@ -51,7 +58,12 @@ export class LoadPipelineComponent implements OnInit {
           header: true,
           complete: (result) => {
             this.csvJsonData = result.data
-            this.ingestUsers(this.csvJsonData); // JSON data
+            if(this.uploadClicked == 'USER'){
+              this.ingestUsers(this.csvJsonData); // USER data
+            }else if(this.uploadClicked == 'ACTIVITY'){
+              this.ingestActivity(this.csvJsonData,this.selectedResource)  //ACTIVITY data
+            }
+            
 
           }
         });
@@ -66,7 +78,6 @@ export class LoadPipelineComponent implements OnInit {
       (response: any) => {
 
         if (response && response["ingested users"] == -1) {
-          console.log("not ingesting");
           this.dialogRef.open(NotificationComponent, {
             data: {
               notificationObject: "Some issue Occurred in ingesting !!!"
@@ -88,6 +99,56 @@ export class LoadPipelineComponent implements OnInit {
 
     )
 
+  }
+
+
+  loadResources(){
+    this.resourceFlyout = true;
+    this.resourceService.loadResources().subscribe(
+      (res)=>{
+        this.resources = res;
+        this.resources.unshift('select');
+      }
+    )
+
+  }
+
+  onChange(event:any){
+
+    if( event.target.value){
+      this.selectedResource = event.target.value;
+    }
+    this.resourceFlyout = false;
+    this.showUpload = true;
+    
+  }
+
+  uploadActivity(){
+    this.enableCsvCard = true; 
+    this.showMappingfields =  true; 
+   
+  }
+
+  ingestActivity(data:any,selectedResource:string){
+    this.pipelineService.ingestActivity(data,selectedResource).subscribe(
+      (res)=>{
+        if(res == true){
+          this.dialogRef.open(NotificationComponent, {
+            data :
+            {
+              notificationObject :"Activities Ingested"
+            }
+          })
+        }else{
+          this.dialogRef.open(NotificationComponent,{
+            data :{
+              notificationObject :"Failed To Ingest Activities"
+            }
+          })
+        }
+
+      }
+    );
   }
 
 }

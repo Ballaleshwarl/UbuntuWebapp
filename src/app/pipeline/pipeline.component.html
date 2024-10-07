@@ -7,8 +7,8 @@
         Ingestion Type
     </mat-label>
     <select matNativeControl required  (change)="onSelect($event)">
-        <option  *ngFor="let option of options">{{option.type}}</option>
-      </select>
+        <option  *ngFor="let option of options" [disabled]="checkToDisable(option)">{{option.type}}</option>
+      </select> 
 </mat-form-field>
 
 

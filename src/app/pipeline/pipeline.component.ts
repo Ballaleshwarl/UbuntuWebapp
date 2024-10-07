@@ -19,12 +19,17 @@ export class PipelineComponent  implements OnInit{
   options :IngestionType[]=[];
 
 constructor(){
+  this.options.push({type:'Select Ingestion'})
   this.options.push({type:'USER'});
   this.options.push({type:'ACTIVITY'});
 }
 
 ngOnInit(): void {
  
+}
+
+checkToDisable(option :any){
+  return option.type === 'Select Ingestion';
 }
 
 onSelect(event:Event){

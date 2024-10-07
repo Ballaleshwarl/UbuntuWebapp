@@ -30,6 +30,10 @@ import { NotificationComponent } from './notification/notification.component';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatSortModule} from '@angular/material/sort';
+import { ResourceComponent } from './resource/resource.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import {MatSortModule} from '@angular/material/sort';
     ConfigureComponent,
     LoadPipelineComponent,
     DynamicHostDirective,
-    NotificationComponent
+    NotificationComponent,
+    ResourceComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,10 @@ import {MatSortModule} from '@angular/material/sort';
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatListModule,
+    MatSidenavModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,4 +13,11 @@ export class PipelineService {
     const headers = new HttpHeaders({'Content-Type':'application/json'});
     return this.http.post("http://localhost:8080/pipeline/ingestData",JSON.stringify(data),{headers:headers});
   }
+
+  ingestActivity(data:any,selectedResource:string):Observable<any>{
+  const formData =  new FormData();
+  formData.set("data",JSON.stringify(data));
+  formData.set("selectedResource",selectedResource);
+  return this.http.post("http://localhost:8080/pipeline/ingestActivity",formData);
+  }
 }

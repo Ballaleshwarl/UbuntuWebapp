@@ -1,12 +1,15 @@
 .form-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;    
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #0b0a0a;
+    border-radius: 20px;
     width: 300px;
     margin: auto;
+    margin-top: 200px;
+    background-color: #9a9ea1;
 }
 
 .input-group {

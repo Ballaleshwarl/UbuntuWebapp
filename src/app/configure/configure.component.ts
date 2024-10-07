@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-configure',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./configure.component.css']
 })
 export class ConfigureComponent {
+
+  constructor(private router:Router){}
+  onClick(){
+    this.router.navigate(['resource']);
+  }
 
 }
