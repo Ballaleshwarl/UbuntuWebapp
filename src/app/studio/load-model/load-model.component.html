@@ -1,0 +1,89 @@
+<!-- Main Container -->
+<div class="bg-violet-300 h-[900px] w-[1650px] ml-4 border-2 border-black">
+
+  <div class="left-flyout">
+    <ul (click)="onSelect($event)">
+      <li>Entity</li>
+      <li>Resource</li>
+      <li>Model</li>
+
+    </ul>
+  </div>
+
+  <!-- Flyout Container in Purple Theme -->
+  <div class="right-flyout">
+    <div *ngIf="showFlyout"
+      class=" bg-purple-100 border border-purple-300 shadow-lg rounded-md w-48 p-2 transition duration-300">
+      <ul (click)="onSelectedItem($event)">
+        <li class="p-2 hover:bg-purple-200 cursor-pointer" *ngFor="let item of items">{{item}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box" style=" margin-left: 200px;" *ngIf="showEntityBox" (click)="OnEntityBoxClick($event)">
+    Entity
+  </div>
+
+  <div class="box" style=" margin-left: 350px;" *ngIf="showResourceBox" (click)="OnResourceBoxClick()">
+    Resource
+  </div>
+
+  <div class="box" style=" margin-left: 500px;" *ngIf="showModelBox" (click)="OnModelBoxClick()">
+    Model
+  </div>
+
+
+  <!-- Flyout Container in Purple Theme (Model Form) -->
+ <form [formGroup]="modelForm" (ngSubmit)="submitForm()">
+  <div class="right-flyout">
+    <div *ngIf="showModelForm"
+      class="bg-purple-100 border border-purple-300 shadow-lg rounded-md w-64 p-4 transition duration-300">
+
+      <!-- Close (X) Button -->
+      <button class="absolute top-2 right-2 text-purple-500 hover:text-purple-700 focus:outline-none"
+        (click)="closeForm()" aria-label="Close">
+        &times;
+      </button>
+
+
+      <div class="mb-4">
+        <label class="block text-purple-700 font-semibold">Model Name</label>
+        <input type="text"  formControlName = "modelName"
+          class="w-full mt-1 p-2 border border-purple-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+          placeholder="Enter model name" />
+      </div>
+
+      <div class="mb-4" *ngIf="modelType == 'ENTITY MODEL'">
+        <label class="block text-purple-700 font-semibold">Entity Attribute</label>
+        <input type="text" formControlName = "entityAttribute"
+          class="w-full mt-1 p-2 border border-purple-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+          placeholder="Enter entity attribute" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-purple-700 font-semibold">EventDesc</label>
+        <input type="text" formControlName = "eventdesc"
+          class="w-full mt-1 p-2 border border-purple-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+          placeholder="Enter event description" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-purple-700 font-semibold">RiskScore</label>
+        <input type="number"  formControlName = "riskscore"
+          class="w-full mt-1 p-2 border border-purple-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+          placeholder="Enter risk score" />
+      </div>
+
+      <div class="flex justify-end">
+        <button class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300" type ="submit">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+ </form>
+
+
+
+
+</div>

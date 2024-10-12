@@ -1,4 +1,28 @@
 <app-header></app-header>
 
+<div class="relative">
+    <!-- Plus Icon in Purple Theme -->
+    <button
+      class="bg-purple-500 text-white p-2 rounded-full shadow-md hover:bg-purple-600 transition duration-300"
+      (click)="toggleFlyout()"
+    >
+      <span class="text-xl">+</span>
+    </button>
+  
+    <!-- Flyout Container in Purple Theme -->
+    <div
+      *ngIf="showFlyout"
+      class="absolute top-10 left-0 bg-purple-100 border border-purple-300 shadow-lg rounded-md w-48 p-2 transition duration-300"
+    >
+      <ul (click)="onSelectCanvas($event)" #ulComponent>
+        <li class="p-2 hover:bg-purple-200 cursor-pointer">Create Model</li>
+        <li class="p-2 hover:bg-purple-200 cursor-pointer">Linking</li>
+      </ul>
+    </div>
+  </div>
+
+
+    <app-load-model *ngIf="loadModel"></app-load-model>
+
 
 <app-footer></app-footer>

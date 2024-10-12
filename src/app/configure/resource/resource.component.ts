@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ResourceService } from '../resource.service';
+import { ResourceService } from '../../resource.service';
 import { MatDialog } from '@angular/material/dialog';
-import { NotificationComponent } from '../notification/notification.component';
+import { NotificationComponent } from '../../notification/notification.component';
 
 @Component({
   selector: 'app-resource',

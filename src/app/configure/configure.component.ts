@@ -7,10 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./configure.component.css']
 })
 export class ConfigureComponent {
-
+  showFlyout = false;
   constructor(private router:Router){}
   onClick(){
     this.router.navigate(['resource']);
+  }
+
+  toggleFlyout() {
+    this.showFlyout = !this.showFlyout;
   }
 
 }
