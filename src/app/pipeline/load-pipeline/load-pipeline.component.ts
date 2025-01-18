@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
 import * as Papa from 'papaparse';
-import { PipelineService } from '../pipeline.service';
+import { PipelineService } from '../../pipeline.service';
 import { MatDialog } from '@angular/material/dialog';
-import { NotificationComponent } from '../notification/notification.component';
-import { ResourceService } from '../resource.service';
+import { NotificationComponent } from '../../notification/notification.component';
+import { ResourceService } from '../../resource.service';
 
 
 @Component({

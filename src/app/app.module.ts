@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { LoadPipelineComponent } from './load-pipeline/load-pipeline.component';
+import { LoadPipelineComponent } from './pipeline/load-pipeline/load-pipeline.component';
 import { DynamicHostDirective } from './dynamic-host.directive';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
@@ -30,10 +30,12 @@ import { NotificationComponent } from './notification/notification.component';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatSortModule} from '@angular/material/sort';
-import { ResourceComponent } from './resource/resource.component';
+import { ResourceComponent } from './configure/resource/resource.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { LoadModelComponent } from './studio/load-model/load-model.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { MatIconModule } from '@angular/material/icon';
     LoadPipelineComponent,
     DynamicHostDirective,
     NotificationComponent,
-    ResourceComponent
+    ResourceComponent,
+    LoadModelComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatSortModule,
     MatListModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

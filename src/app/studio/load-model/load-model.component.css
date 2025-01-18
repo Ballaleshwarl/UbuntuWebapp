@@ -1,0 +1,43 @@
+.left-flyout {
+    background: rgb(225, 200, 245); /* Light purple background */
+    height: 100px;
+    width: 150px;
+    margin-top: 150px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for a subtle 3D effect */
+    border-radius: 8px; /* Rounded corners */
+    color: rgb(70, 40, 80); /* Darker purple text for contrast */
+    padding: 10px; /* Padding inside the flyout */
+}
+
+.right-flyout{
+    position: absolute;
+    right: 5px;
+    top: 150px;
+    margin-top: 0px; /* Remove the margin-top */
+
+}
+
+.box{
+    background: rgb(212, 167, 252); /* Light purple background */
+    height: 70px;
+    width: 100px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for a subtle 3D effect */
+    border-radius: 8px; /* Rounded corners */
+    color: rgb(70, 40, 80); /* Darker purple text for contrast */
+    padding: 10px; /* Padding inside the flyout */
+    margin-top: -200px;
+    text-align: center;
+    position: absolute;
+}
+
+.content{
+    display: block;
+}
+
+.Mdisable{
+    background-color: rgb(170, 168, 171);
+}
+
+.Menable{
+    background-color: rgb(237, 223, 243);
+}

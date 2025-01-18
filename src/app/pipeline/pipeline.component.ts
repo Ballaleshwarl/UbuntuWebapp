@@ -1,5 +1,5 @@
 import { Component, createComponent, OnInit, ViewChild } from '@angular/core';
-import { LoadPipelineComponent } from '../load-pipeline/load-pipeline.component';
+import { LoadPipelineComponent } from './load-pipeline/load-pipeline.component';
 import { DynamicHostDirective } from '../dynamic-host.directive';
 
 
