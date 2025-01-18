@@ -1,6 +1,10 @@
 import { Component, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ResourceService } from 'src/app/resource.service';
+import { StudioService } from '../studio.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NotificationComponent } from 'src/app/notification/notification.component';
+import { Model } from '../Model.model';
 
 @Component({
   selector: 'app-load-model',
@@ -13,16 +17,19 @@ export class LoadModelComponent {
   items: any = [];
   selectedOptionForBox !: String;
   boxValue !: String;
-  entityValue: any;
-  resourceValue :any;
+  entityValue: any = 'None';
+  resourceValue :any= 'None';
   showEntityBox: boolean = false;
   showResourceBox: boolean = false;
   showModelBox : boolean = false;
   modelType:any;
   modelForm !: FormGroup;
+  canExeModel:boolean = false;
+  savedModel !:Model;
 
 
-  constructor(private resourceService: ResourceService, private fb:FormBuilder) {
+
+  constructor(private resourceService: ResourceService, private fb:FormBuilder, private studioService :StudioService,private dialogRef:MatDialog) {
     this.modelForm =  fb.group({
       modelName :[''],
       eventdesc : [''],
@@ -105,18 +112,47 @@ export class LoadModelComponent {
     this.items = Array.from(tempSet);
 
   }
+
+
   submitForm(){
     let obj = {
-      "form" : this.modelForm.value, 
-      "Entity" :this.entityValue ,
-      "resource": this.resourceValue 
+      "entity": this.entityValue,
+      "resource": this.resourceValue,
+
     }
-     
+    this.studioService.saveModel(obj, this.modelForm.value).subscribe((res) => {
+      if(res.status == "success" && res.data != undefined){
+         this.savedModel = new Model(JSON.parse(res.data));
+        this.canExeModel = true;
+        this.dialogRef.open(NotificationComponent,{
+          data: {
+            notificationObject : "Model Updated!"
+          }
+        })
+      }else
+      {
+        this.dialogRef.open(NotificationComponent,{
+          data: {
+            notificationObject : "Something Went wrong!"
+          }
+        })
+      }
+    })
+
 
   }
 
   closeForm(){
     this.showModelForm = false;
+  }
+
+
+  executeIndividualModel(){
+    if(this.savedModel){
+      this.studioService.runIndividualModel(this.savedModel.id).subscribe((res)=>{
+
+      })
+    }
   }
 
 }

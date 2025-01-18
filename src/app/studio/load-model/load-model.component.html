@@ -1,6 +1,8 @@
 <!-- Main Container -->
 <div class="bg-violet-300 h-[900px] w-[1650px] ml-4 border-2 border-black">
 
+  <button style="height: 30px; width: 30px; justify-items: center;" (click)="executeIndividualModel()" [disabled]="!canExeModel" [ngClass]="canExeModel ? 'Menable': 'Mdisable'"><mat-icon>play_circle_outline</mat-icon> </button>
+
   <div class="left-flyout">
     <ul (click)="onSelect($event)">
       <li>Entity</li>
@@ -20,16 +22,30 @@
     </div>
   </div>
 
-  <div class="box" style=" margin-left: 200px;" *ngIf="showEntityBox" (click)="OnEntityBoxClick($event)">
-    Entity
-  </div>
+    
+  <div class="box" style=" margin-left: 200px;"  matTooltip="Info: {{entityValue}}" *ngIf="showEntityBox" (click)="OnEntityBoxClick($event)">
+    <div class="content">
+     
+     <span style="display: block; margin-bottom: 4px;">Entity </span>
+     <mat-icon><span class="material-symbols-outlined">
+       person
+       </span></mat-icon>
+    </div>
+   </div>
 
-  <div class="box" style=" margin-left: 350px;" *ngIf="showResourceBox" (click)="OnResourceBoxClick()">
-    Resource
+  <div class="box" style=" margin-left: 350px;"  matTooltip="Info: {{resourceValue}}" *ngIf="showResourceBox" (click)="OnResourceBoxClick()">
+   
+    <span style="display: block; margin-bottom: 4px;">Resource</span>
+    <mat-icon><span class="material-symbols-outlined">
+      storage
+      </span></mat-icon>
   </div>
 
   <div class="box" style=" margin-left: 500px;" *ngIf="showModelBox" (click)="OnModelBoxClick()">
-    Model
+   <span style="display: block; margin-bottom: 4px;">Model</span>
+    <mat-icon><span class="material-symbols-outlined">
+      model_training
+      </span></mat-icon>
   </div>
 
 

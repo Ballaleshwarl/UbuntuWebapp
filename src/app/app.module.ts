@@ -35,6 +35,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadModelComponent } from './studio/load-model/load-model.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { LoadModelComponent } from './studio/load-model/load-model.component';
     MatSortModule,
     MatListModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

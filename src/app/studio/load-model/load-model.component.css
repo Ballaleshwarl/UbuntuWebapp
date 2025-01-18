@@ -19,7 +19,7 @@
 
 .box{
     background: rgb(212, 167, 252); /* Light purple background */
-    height: 50px;
+    height: 70px;
     width: 100px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for a subtle 3D effect */
     border-radius: 8px; /* Rounded corners */
@@ -28,4 +28,16 @@
     margin-top: -200px;
     text-align: center;
     position: absolute;
+}
+
+.content{
+    display: block;
+}
+
+.Mdisable{
+    background-color: rgb(170, 168, 171);
+}
+
+.Menable{
+    background-color: rgb(237, 223, 243);
 }
