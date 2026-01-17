@@ -52,7 +52,7 @@ getUsers(gridType:any){
     this.globalUsers.sort = this.sorter;
   },
   (error)=>{
-
+    console.log(error);
   }
  );
 }

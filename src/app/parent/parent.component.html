@@ -1,0 +1,8 @@
+<h1>MITRE Matrix Viewer</h1>
+<button (click)="loadMitreData()">Load MITRE Data</button>
+
+<div style="margin-top: 20px;">
+  <ng-container *ngIf="mitreDataFromApiOrService.length > 0">
+    <!-- <app-mitre *ngIf="key" [mitreData]="mitreDataFromApiOrService" [refreshTrigger]="key"></app-mitre> -->
+  </ng-container>
+</div>

@@ -36,6 +36,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadModelComponent } from './studio/load-model/load-model.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MitreComponent } from './mitre/mitre.component';
+import { ParentComponent } from './parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     DynamicHostDirective,
     NotificationComponent,
     ResourceComponent,
-    LoadModelComponent
+    LoadModelComponent,
+    MitreComponent,
+    ParentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<div *ngFor="let tactic of mitreData" class="tactic-section">
+  <h2>{{ tactic.tactic }}</h2>
+
+  <div *ngFor="let technique of tactic.techniques" class="technique-section">
+    <div (click)="onTechniqueClick(technique)"
+         style="cursor: pointer; padding: 8px; background: #f0f0f0; margin-bottom: 4px;">
+      <strong>{{ technique.technique }}</strong>
+      ({{ technique.techniqueId }}) - 
+      Models: {{ getModelCount(technique) }}
+    </div>
+
+    <div *ngIf="selectedTechnique === technique" class="technique-details"
+         style="padding: 10px; background: #e8f4ff; border-left: 4px solid #007acc;">
+      <p><strong>Models under this technique:</strong></p>
+      <ul>
+        <li *ngFor="let model of technique.models">
+          {{ model }}
+          <button (click)="deleteModel(model)">Delete</button>
+        </li>
+      </ul>
+      <p *ngIf="!technique.models.length">No models remaining for this technique.</p>
+    </div>
+  </div>
+</div>

@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 })
 export class ConfigureComponent {
   showFlyout = false;
+  myList:any=[];
+
   constructor(private router:Router){}
-  onClick(){
+  onClick(data:any){
+    this.myList["first"] = 10
     this.router.navigate(['resource']);
   }
 
